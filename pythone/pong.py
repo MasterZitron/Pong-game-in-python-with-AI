@@ -12,7 +12,7 @@ Sometimes the ball can get stuck inside a paddle and freak out, but hey i didn't
 followed a tutorial
 """
 # Ai Toggle
-AI = True
+AI = False
 
 #import modules and start pygame
 import pygame
@@ -121,6 +121,7 @@ while CarryOn == True and restart == False:
                 paddleB.moveUp(5)
             if ball.velocity[0] == 4 and ball.velocity[1] <= -5 and ball.rect.y < pBmid:
                 paddleB.moveDown(5)
+        """ #Uncomment this section to have both paddles as AI
         else:
             if ball.velocity[0] == -4 and ball.velocity[1] >= 0 and ball.rect.y > pAmid:
                 paddleA.moveDown(5)
@@ -134,7 +135,7 @@ while CarryOn == True and restart == False:
                 paddleA.moveUp(5)
             if ball.velocity[0] == -4 and ball.velocity[1] <= -5 and ball.rect.y < pAmid:
                 paddleA.moveDown(5)
-            
+            """
 
         
 
