@@ -86,6 +86,8 @@ while CarryOn == True and restart == False:
         elif event.type == pygame.KEYDOWN:
             if event.key== pygame.K_x: # Pressing X quits the game
                 CarryOn = False # END
+            if event.key== pygame.K_r:
+                reset()
     # Moving the paddles when the keys "W","S" and the arrow keys "up" and "down" are pressed
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]: 
@@ -106,14 +108,35 @@ while CarryOn == True and restart == False:
     if AI == True:
         pAmid = (paddleA.rect.y + 50) # I added 50 extra pixels to the paddles because it was hitting the ball with its edge
         pBmid = (paddleB.rect.y + 50) # doing this made it hit right in the middle
-        if ball.rect.y >= pBmid and ball.rect.x > 300:
-            paddleB.moveDown(5)
-        if ball.rect.y <= pBmid and ball.rect.x > 300:
-            paddleB.moveUp(5)
-        if ball.rect.y >= pAmid and ball.rect.x < 400:
-            paddleA.moveDown(5)
-        if ball.rect.y <= pAmid and ball.rect.x < 400:
-            paddleA.moveUp(5)
+        if ball.rect.x > 350:
+            if ball.velocity[0] == 4 and ball.velocity[1] >= 0 and ball.rect.y > pBmid:
+                paddleB.moveDown(5)
+            if ball.velocity[0] == 4 and ball.velocity[1] >= 0 and ball.rect.y < pBmid:
+                paddleB.moveUp(5)
+            if ball.velocity[0] == 4 and ball.velocity[1] <= -1 and ball.rect.y > pBmid:
+                paddleB.moveDown(5)
+            elif ball.velocity[0] == 4 and ball.velocity[1] <= -1 and ball.rect.y < pBmid:
+                paddleB.moveUp(5)
+            if ball.velocity[0] == 4 and ball.velocity[1] <= -3 and ball.rect.y < pBmid:
+                paddleB.moveUp(5)
+            if ball.velocity[0] == 4 and ball.velocity[1] <= -5 and ball.rect.y < pBmid:
+                paddleB.moveDown(5)
+        else:
+            if ball.velocity[0] == -4 and ball.velocity[1] >= 0 and ball.rect.y > pAmid:
+                paddleA.moveDown(5)
+            if ball.velocity[0] == -4 and ball.velocity[1] >= 0 and ball.rect.y < pAmid:
+                paddleA.moveUp(5)
+            if ball.velocity[0] == -4 and ball.velocity[1] <= -1 and ball.rect.y > pAmid:
+                paddleA.moveDown(5)
+            elif ball.velocity[0] == -4 and ball.velocity[1] <= -1 and ball.rect.y < pAmid:
+                paddleA.moveUp(5)
+            if ball.velocity[0] == -4 and ball.velocity[1] <= -3 and ball.rect.y < pAmid:
+                paddleA.moveUp(5)
+            if ball.velocity[0] == -4 and ball.velocity[1] <= -5 and ball.rect.y < pAmid:
+                paddleA.moveDown(5)
+            
+
+        
 
     # Update sprites
     all_sprites_list.update()

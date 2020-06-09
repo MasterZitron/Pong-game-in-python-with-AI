@@ -12,7 +12,9 @@ if ball.rect.y >= pBmid and ball.rect.x > 300:
             paddleA.moveUp(5)
 
 # Try to predict where it will go and move, works most of the time
-if ball.velocity[0] == (-4) and ball.velocity[1] <= 0 and ball.rect.y < pAmid:
+        if ball.velocity[0] == (-4) and ball.velocity[1] <= 0 and ball.rect.y < pAmid:
+            paddleA.moveUp(5)
+        if ball.velocity[0] == (-4) and ball.velocity[1] <= (-5) and ball.rect.y < pAmid:
             paddleA.moveUp(5)
         if ball.velocity[0] == (-4) and ball.velocity[1] >= 0 and ball.rect.y > pAmid:
             paddleA.moveDown(5)

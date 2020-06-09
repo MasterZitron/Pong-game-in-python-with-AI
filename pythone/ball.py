@@ -17,8 +17,8 @@ class Ball(pygame.sprite.Sprite):
 
         # Draw the ball (...a rectangle)
         pygame.draw.rect(self.image, color, [0,0, width, height])
-
-        # Set it's X and Y velocity, change values here
+        # If changing the velocity, make sure the X value is the same. Ex: randint(5,5)
+        # On the Y value, the first one has to be negative, numbers can be any. Ex: randint(-9,14)
         # My friend suggested I use Pythagores theorem to make it the ball velocity
         # and i have no clue how tf i do that so i didnt do it
         self.velocity = [randint(4,4),randint(-4,8)]
